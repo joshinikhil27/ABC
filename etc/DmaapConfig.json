@@ -1,0 +1,78 @@
+{
+
+	"channels": [
+		{
+			"name": "sec_measurement",
+			"cambria.topic": "unauthenticated.SEC_MEASUREMENT_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_fault",
+			"cambria.topic": "unauthenticated.SEC_FAULT_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_heartbeat",
+			"cambria.topic": "unauthenticated.SEC_HEARTBEAT_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_statechange",
+			"cambria.topic": "unauthenticated.SEC_STATECHANGE_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_mobileflow",
+			"cambria.topic": "unauthenticated.SEC_MOBILEFLOW_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_other",
+			"cambria.topic": "unauthenticated.SEC_OTHER_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_thresholdCrossingAlert",
+			"cambria.topic": "unauthenticated.SEC_THRESHOLDCROSSINGALERT_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "roadm-sec-to-hp",
+			"cambria.topic": "unauthenticated.SEC_ROADMTOHP_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		},
+		{
+			"name": "sec_syslog",
+			"cambria.topic": "unauthenticated.SEC_SYSLOG_OUTPUT",
+			"class": "HpCambriaOutputStream",
+			"stripHpId": "true",
+			"type": "out",
+			"cambria.hosts": "146.20.110.199"
+		}
+		
+	]
+}

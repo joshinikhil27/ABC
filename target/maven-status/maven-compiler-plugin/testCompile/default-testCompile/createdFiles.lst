@@ -1,0 +1,3 @@
+org\openecomp\dcae\sectest\InputJsonValidation.class
+org\openecomp\dcae\sectest\VESCollectorJunitTestRunner.class
+org\openecomp\dcae\sectest\VESCollectorJunitTest.class

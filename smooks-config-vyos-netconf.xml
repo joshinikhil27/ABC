@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd" 
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.3.xsd"
+                      xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.2.xsd">
+
+    <core:filterSettings type="SAX" />
+
+    <jb:bean beanId="evelScaling" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelScalingMeasurement" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf" >
+    
+      
+      	<jb:wiring property="vnic_usage" beanIdRef="measurementVnicPerformances" />
+       	<jb:value property="timeWindow" data="timeWindow" />
+       
+    </jb:bean>
+    
+    
+    <!-- jb:bean beanId="measurementVnicPerformances" class="org.openecomp.dcae.restapi.model.ves.syslog.MEASUREMENT_VNIC_PERFORMANCE[]" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf">
+        <jb:wiring beanIdRef="measurementVnicPerformance" />
+    </jb:bean-->
+    
+    <jb:bean beanId="measurementVnicPerformances" class="java.util.ArrayList" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf">
+        <jb:wiring beanIdRef="measurementVnicPerformance" />
+    </jb:bean>
+    
+    
+    <jb:bean beanId="measurementVnicPerformance"  class="org.openecomp.dcae.restapi.model.ves.syslog.MEASUREMENT_VNIC_PERFORMANCE" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf">
+    	<jb:wiring property="recvd_total_packets_acc" beanIdRef="totalPackets" />
+    	<jb:wiring property="recvd_octets_acc" beanIdRef="totalBytes" />
+    </jb:bean>
+    
+     <jb:bean beanId="totalPackets" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelOptionDouble" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf">
+        <jb:value property="value" data="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf/totalPackets"  />
+    </jb:bean>
+    
+    <jb:bean beanId="totalBytes" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelOptionDouble" createOnElement="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf">
+        <jb:value property="value" data="org.openecomp.dcae.restapi.model.vendor.netconf.VNetConf/totalBytes"  />
+    </jb:bean>
+    
+  
+   
+   
+    <!-- jb:bean beanId="lineItems" class="example.trgmodel.LineItem[]" createOnElement="orderItems">
+        <jb:wiring beanIdRef="lineItem" />
+    </jb:bean-->
+    
+   
+    
+    
+   
+    
+    
+    
+    
+    
+ 
+
+</smooks-resource-list>

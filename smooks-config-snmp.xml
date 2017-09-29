@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd" 
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.3.xsd"
+                      xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.2.xsd">
+
+    <core:filterSettings type="SAX" />
+
+    <jb:bean beanId="evelScalingSnmp" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelScalingMeasurement" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp" >
+    
+      	<jb:wiring property="cpu_usage" beanIdRef="cupUsages" />
+      	<jb:wiring property="mem_usage" beanIdRef="memUsages" />
+       	<jb:value property="date" data="date" decoder="Date">
+            <jb:decodeParam name="format">yyyy-mm-dd hh:mm:ss</jb:decodeParam>
+            <jb:decodeParam name="locale-language">en</jb:decodeParam>
+            <jb:decodeParam name="locale-country">IE</jb:decodeParam>
+        </jb:value>
+    </jb:bean>
+    
+    
+    <jb:bean beanId="cupUsages" class="java.util.ArrayList" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp">
+        <jb:wiring beanIdRef="cupUsage" />
+    </jb:bean>
+    
+    <jb:bean beanId="cupUsage" class="org.openecomp.dcae.restapi.model.ves.syslog.MEASUREMENT_CPU_USE" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp" >      
+       	<jb:value property="id" data="cpuIdentifier" />
+       	<jb:value property="usage" data="percentUsage" />
+    </jb:bean>
+    
+        
+    <jb:bean beanId="memUsages" class="java.util.ArrayList" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp">
+        <jb:wiring beanIdRef="memUsage" />
+    </jb:bean>
+    
+    <jb:bean beanId="memUsage" class="org.openecomp.dcae.restapi.model.ves.syslog.MEASUREMENT_MEM_USE" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp" >
+    	<jb:value property="vmid" data="cpuIdentifier" />
+    	<jb:wiring property="memconfig" beanIdRef="memconfigBean" />
+    	<jb:wiring property="memused" beanIdRef="memusedBean" />
+    	<jb:wiring property="memfree" beanIdRef="memfreeBean" />
+    	
+    </jb:bean>
+ 
+    <jb:bean beanId="memconfigBean" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelOptionDouble" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp">
+        <jb:value property="value" data="memoryConfigured"  />
+    </jb:bean>
+    
+  	<jb:bean beanId="memusedBean" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelOptionDouble" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp">
+        <jb:value property="value" data="memoryUsed"  />
+    </jb:bean>
+    
+    <jb:bean beanId="memfreeBean" class="org.openecomp.dcae.restapi.model.ves.syslog.EvelOptionDouble" createOnElement="org.openecomp.dcae.restapi.model.vendor.snmp.Vsnmp">
+        <jb:value property="value" data="memoryFree"  />
+    </jb:bean>
+
+</smooks-resource-list>
