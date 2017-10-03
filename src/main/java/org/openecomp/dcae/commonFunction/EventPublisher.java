@@ -114,6 +114,9 @@ public class EventPublisher {
 						String eventId=vals.get(0);
 						String protocol=vals.get(1);
 						String rawJson=vals.get(2);
+						JSONObject childObj=(JSONObject)event.get("event");
+						JSONObject superObj=(JSONObject)childObj.get("commonEventHeader");	
+						eventId=(String)superObj.get("eventId");
 						ApplicatinUtils.sendEventToVESUI(vesUiUrl, eventId, protocol, rawJson, topic);
 					}
 				}
